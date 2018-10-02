@@ -35,11 +35,11 @@ public class PurchaseModel {
 		bean.setBaddr(sc.nextLine());
 		System.out.println("구매처의 연락처를 입력하세요.");
 		bean.setBnumber(sc.nextInt());
+		sc.nextLine();
 		System.out.println("구매처의 대표자명을 입력하세요.");
 		bean.setBrepresent(sc.nextLine());
 		
 		rs1 = dao.insertPurchase(bean);
-		sc.close();		
 		if(purchase != 0) {
 			System.out.println("사용자를 수정하였습니다.");
 		} else System.out.println("사용자 수정 실패");
