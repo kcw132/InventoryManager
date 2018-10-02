@@ -13,7 +13,7 @@ public class StartInventoryManager {
 //		rs.userView();
 		PurchaseModel rs1 = new PurchaseModel();
 		rs1.insertPurchase();
-		
+		System.out.println();
 	}
 
 	}
