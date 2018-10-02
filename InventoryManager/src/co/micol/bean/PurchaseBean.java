@@ -27,8 +27,8 @@ public class PurchaseBean {		//구매업체관리
 	public int getBnumber() {
 		return bnumber;
 	}
-	public void setBnumber(int bnumber) {
-		this.bnumber = bnumber;
+	public void setBnumber(int b) {
+		this.bnumber = b;
 	}
 	public String getBrepresent() {
 		return brepresent;

@@ -21,42 +21,48 @@ public class PurchaseModel {
 	private String bnumber;
 	private String brepresent;
 	private int purchase;
+	private ResultSet rs1;
 	
 	
-	void Purchase() throws SQLException {
+	public void insertPurchase() throws SQLException {			//입력
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("구매처의 업체코드를 입력하세요.");
-		bcode = sc.nextLine();
+		bean.setBcode(sc.nextLine());
 		System.out.println("구매처의 업체명을 입력하세요.");
-		bname = sc.nextLine();
+		bean.setBname(sc.nextLine());
 		System.out.println("구매처의 주소를 입력하세요.");
-		baddr = sc.nextLine();
+		bean.setBaddr(sc.nextLine());
 		System.out.println("구매처의 연락처를 입력하세요.");
-		bnumber = sc.nextLine();
-		System.out.println("구매처의 대표자명울 입력하세요.");
-		brepresent = sc.nextLine();
+		bean.setBnumber(sc.nextInt());
+		System.out.println("구매처의 대표자명을 입력하세요.");
+		bean.setBrepresent(sc.nextLine());
 		
-		rs = dao.Purchase(bean);
+		rs1 = dao.insertPurchase(bean);
 		sc.close();		
 		if(purchase != 0) {
 			System.out.println("사용자를 수정하였습니다.");
 		} else System.out.println("사용자 수정 실패");
 	}
+
 	
-	public void userView() throws SQLException {
-		rs = dao.userView();
-		if(rs.next()) {
-			do {
-				bean = new PurchaseBean();
-				bean.setBcode(rs.getString("bcode"));
-				bean.setBname(rs.getString("bname"));
-				bean.setBaddr(rs.getString("baddr"));
-				bean.setBnumber(rs.getInt("bnumber"));
-				bean.setBrepresent(rs.getString("brepresent"));				
-				bean.toString();						
-			} while(rs.next());
-		} else System.out.println("게시글이 존재하지 않습니다.");
-		rs.close();
-	}
+	//bean.setUserId(sc.nextLine());
+	//bcode = sc.nextLine();
+	
+	
+	//	public void userView() throws SQLException {
+//		rs = dao.userView();
+//		if(rs.next()) {
+//			do {
+//				bean = new PurchaseBean();
+//				bean.setBcode(rs.getString("bcode"));
+//				bean.setBname(rs.getString("bname"));
+//				bean.setBaddr(rs.getString("baddr"));
+//				bean.setBnumber(rs.getInt("bnumber"));
+//				bean.setBrepresent(rs.getString("brepresent"));				
+//				bean.toString();						
+//			} while(rs.next());
+//		} else System.out.println("게시글이 존재하지 않습니다.");
+//		rs.close();
+//	}
 }
