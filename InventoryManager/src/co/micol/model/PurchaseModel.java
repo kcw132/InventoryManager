@@ -8,9 +8,6 @@ import co.micol.bean.PurchaseBean;
 import co.micol.dao.PurchaseDao;
 
 
-
-
-
 public class PurchaseModel {
 	private PurchaseBean bean = new PurchaseBean();
 	private PurchaseDao dao = new PurchaseDao();
@@ -40,7 +37,8 @@ public class PurchaseModel {
 		bean.setBrepresent(sc.nextLine());
 		
 		rs1 = dao.insertPurchase(bean);
-		if(purchase != 0) {
+		
+		if(rs1.next()) {
 			System.out.println("사용자를 수정하였습니다.");
 		} else System.out.println("사용자 수정 실패");
 	}
