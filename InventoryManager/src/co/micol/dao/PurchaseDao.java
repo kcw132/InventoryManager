@@ -35,13 +35,13 @@ public class PurchaseDao {
 		
 		try {
 			psmt = conn.prepareStatement(sql);
-			rs1 = psmt.executeQuery();
+			
 			psmt.setString(1, b.getBcode());
 			psmt.setString(2, b.getBname());
 			psmt.setString(3, b.getBaddr());
 			psmt.setInt(4, b.getBnumber());
 			psmt.setString(5, b.getBrepresent());
-			
+			rs1 = psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
