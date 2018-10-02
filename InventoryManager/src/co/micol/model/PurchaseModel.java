@@ -17,10 +17,8 @@ public class PurchaseModel {
 	private String baddr;
 	private String bnumber;
 	private String brepresent;
-	private int purchase;
-	private ResultSet rs1;
-	private int rs2;
-	private int rs3;
+
+
 	
 			
 		
@@ -42,40 +40,42 @@ public class PurchaseModel {
 	}
 	
 	
-//	public void insertPurchase() throws SQLException {			//입력
-//	
-//	Scanner sc = new Scanner(System.in);
-//	System.out.println("구매처의 업체코드를 입력하세요.");
-//	bean.setBcode(sc.nextLine());
-//	System.out.println("구매처의 업체명을 입력하세요.");
-//	bean.setBname(sc.nextLine());
-//	System.out.println("구매처의 주소를 입력하세요.");
-//	bean.setBaddr(sc.nextLine());
-//	System.out.println("구매처의 연락처를 입력하세요.");
-//	bean.setBnumber(sc.nextInt());
-//	sc.nextLine();
-//	System.out.println("구매처의 대표자명을 입력하세요.");
-//	bean.setBrepresent(sc.nextLine());
-//	
-//	rs1 = dao.insertPurchase(bean);
-//	sc.close();
-//	if(rs1.next()) {
-//		System.out.println("사용자를 수정하였습니다.");
-//	} else System.out.println("사용자 수정 실패");
-//}
+	public void insertPurchase() throws SQLException {			//입력
+	
+	Scanner sc = new Scanner(System.in);
+	System.out.println("구매처의 업체코드를 입력하세요.");
+	bean.setBcode(sc.nextLine());
+	System.out.println("구매처의 업체명을 입력하세요.");
+	bean.setBname(sc.nextLine());
+	System.out.println("구매처의 주소를 입력하세요.");
+	bean.setBaddr(sc.nextLine());
+	System.out.println("구매처의 연락처를 입력하세요.");
+	bean.setBnumber(sc.nextInt());
+	sc.nextLine();
+	System.out.println("구매처의 대표자명을 입력하세요.");
+	bean.setBrepresent(sc.nextLine());
+	
+	rs = dao.insertPurchase(bean);
+	sc.close();
+	if(rs.next()) {
+		System.out.println("사용자를 수정하였습니다.");
+	} else System.out.println("사용자 수정 실패");
+	rs.close();
+}
 	
 	
 	
-//	public void deletePurchase( ) throws SQLException {  //사용자 삭제
-//		Scanner sc = new Scanner(System.in);
-//		System.out.println("======================");
-//		System.out.println("삭제할 사용자 ID를 입력하세요");
-//		rs2 = dao.deletePurchase(sc.next());
-//		sc.close();
-//		if(rs2 != 0) {
-//			System.out.println("사용자를 삭제하였습니다.");
-//		} else System.out.println("사용자 삭제 실패");
-//	}
+	public void deletePurchase( ) throws SQLException {  //사용자 삭제
+		Scanner sc = new Scanner(System.in);
+		System.out.println("======================");
+		System.out.println("삭제할 사용자 ID를 입력하세요");
+		rs = dao.deletePurchase(sc.next());
+		sc.close();
+		if(rs.next()) {
+			System.out.println("사용자를 삭제하였습니다.");
+		} else System.out.println("사용자 삭제 실패");
+		rs.close();
+	}
 	
 	
 	public void editPurchase() throws SQLException {   //사용자 수정
@@ -95,12 +95,16 @@ public class PurchaseModel {
 		bean.setBrepresent(sc.nextLine());
 		sc.close();
 		
-		rs3 = dao.edit(bean);
-		if(rs3 != 0) {
+		rs = dao.edit(bean);
+		if(rs.next()) {
 			System.out.println("사용자를 수정하였습니다.");			
 		} else System.out.println("사용자 수정 실패");
+		rs.close();
 	}
 	
+
+
+		
 	
 	
 }

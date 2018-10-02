@@ -15,9 +15,7 @@ public class PurchaseDao {
 	private String sql;
 	private PreparedStatement psmt;
 	private ResultSet rs;
-	private ResultSet rs1;
-	private int rs2;
-	private int rs3;
+
 	
 	
 	public PurchaseDao() {  //생성자
@@ -42,56 +40,71 @@ public class PurchaseDao {
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
-		} catch (SQLException e) {
+		} 
+		
+		
+		catch (SQLException e) {
 			e.printStackTrace();
+		}
+		finally {
+			close();
 		}
 		return rs;
 	}
-	public void close() throws SQLException { //객체닫음
-		psmt.close();
-		conn.close();
-	}
+
 		
 	
 	
-//	public ResultSet insertPurchase(PurchaseBean b) throws SQLException{ //내용 삽입하기
-//	sql = "insert into purchase(bcode, bname, baddr, bnumber, brepresent) "
-//			+ "values(?,?,?,?,?)";
-//	
-//	try {
-//		psmt = conn.prepareStatement(sql);
-//		
-//		psmt.setString(1, b.getBcode());
-//		psmt.setString(2, b.getBname());
-//		psmt.setString(3, b.getBaddr());
-//		psmt.setInt(4, b.getBnumber());
-//		psmt.setString(5, b.getBrepresent());
-//		rs1 = psmt.executeQuery();
-//	} catch (SQLException e) {
-//		e.printStackTrace();
-//	}
-//	return rs1;
-//}
-//public void close1() throws SQLException { 
-//	psmt.close();
-//	conn.close();
-//}
+	public ResultSet insertPurchase(PurchaseBean b) throws SQLException{ //내용 삽입하기
+	sql = "insert into purchase(bcode, bname, baddr, bnumber, brepresent) "
+			+ "values(?,?,?,?,?)";
+	
+	try {
+		psmt = conn.prepareStatement(sql);
+		
+		psmt.setString(1, b.getBcode());
+		psmt.setString(2, b.getBname());
+		psmt.setString(3, b.getBaddr());
+		psmt.setInt(4, b.getBnumber());
+		psmt.setString(5, b.getBrepresent());
+		rs = psmt.executeQuery();
+		psmt.close();
+		conn.close();
+	} 	
+	catch (SQLException e) {
+		e.printStackTrace();
+
+	}
+	
+	finally {
+		close();
+	}
+	return rs;
+	
+}
+
+
 	
 	
-//	public int deletePurchase(String bcode) {  //삭제
-//		sql = "delete from purchase where bcode = ?";
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, bcode);
-//			rs2 = psmt.executeUpdate();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return rs2;		
-//	}
+	public ResultSet deletePurchase(String bcode) throws SQLException {  //삭제
+		sql = "delete from purchase where bcode = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, bcode);
+			rs = psmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		finally {
+			close();
+		}
+		return rs;	
+		
+	}
+
 	
-	
-	public int edit(PurchaseBean d) throws SQLException {  //수정
+	public ResultSet edit(PurchaseBean d) throws SQLException {  //수정
 		sql = "update purchase set bname = ?, baddr = ?," +
 		      "bnumber = ?, brepresent =? where bcode = ?";
 		try {
@@ -101,13 +114,20 @@ public class PurchaseDao {
 			psmt.setInt(3, d.getBnumber());
 			psmt.setString(4, d.getBrepresent());
 			psmt.setString(5, d.getBcode());			
-			rs3 = psmt.executeUpdate();
+			rs = psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return rs3;
+		finally {
+			close();
+		}
+		return rs;
 	}
 	
-	
+	public void close() throws SQLException { //객체닫음
+		psmt.close();
+		conn.close();
+		rs.close();
+	}
 	
 }
