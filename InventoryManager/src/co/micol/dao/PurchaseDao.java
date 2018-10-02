@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import co.micol.bean.PurchaseBean;
+
 
 public class PurchaseDao {
 	private Connection conn;
@@ -26,20 +28,20 @@ public class PurchaseDao {
 			e.printStackTrace();
 		}
 	}
-//	public ResultSet Purchase() throws SQLException{ //내용 삽입하기
-//		sql = "insert into purchase values(?,?,?,?,?)";
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			rs = psmt.executeQuery();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return rs;
-//	}
-//	public void close1() throws SQLException { 
-//		psmt.close();
-//		conn.close();
-//	}
+	public ResultSet Purchase(PurchaseBean bean) throws SQLException{ //내용 삽입하기
+		sql = "insert into purchase values(?,?,?,?,?)";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+	public void close1() throws SQLException { 
+		psmt.close();
+		conn.close();
+	}
 	
 	public ResultSet userView() throws SQLException{ //select
 		sql = "select * from purchase";
