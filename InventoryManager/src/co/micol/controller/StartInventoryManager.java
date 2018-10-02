@@ -11,7 +11,7 @@ public class StartInventoryManager {
 		// TODO Auto-generated method stub
 		PurchaseModel rs = new PurchaseModel();
 		rs.userView();
-
+		System.out.println();
 	}
 
 	}
