@@ -61,7 +61,7 @@ public class SaleModel {
 			System.out.println("사용자 수정 실패");
 		rs.close();
 	}
-//
+
 	public void deletesale() throws SQLException { // 사용자 삭제
 		Scanner sc = new Scanner(System.in);
 		System.out.println("======================");

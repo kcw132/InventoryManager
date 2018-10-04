@@ -62,9 +62,9 @@ public class SaleDao {
 
 		}
 
-		finally {
-			close();
-		}
+//		finally {
+//			close();
+//		}
 		return r;
 
 	}
@@ -79,9 +79,9 @@ public class SaleDao {
 			e.printStackTrace();
 		}
 
-		finally {
-			close();
-		}
+//		finally {
+//			close();
+//		}
 		return rs;
 
 	}
@@ -98,8 +98,9 @@ public class SaleDao {
 			rs = psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			close();
+//		} finally {
+//			close();
+//		}
 		}
 		return rs;
 	}

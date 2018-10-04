@@ -18,6 +18,7 @@ public class PurchaseModel {
 	private String bnumber;
 	private String brepresent;
 
+
 			
 	
 		public void PurchaseView() throws SQLException {			//조회
@@ -52,7 +53,7 @@ public class PurchaseModel {
 	System.out.println("구매처의 대표자명을 입력하세요.");
 	bean.setBrepresent(sc.nextLine());
 	
-	rs = dao.insertPurchase(bean);
+	int r = dao.insertPurchase(bean);
 	sc.close();
 	if(rs.next()) {
 		System.out.println("사용자를 수정하였습니다.");

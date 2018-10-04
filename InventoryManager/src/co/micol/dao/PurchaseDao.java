@@ -55,10 +55,10 @@ public class PurchaseDao {
 		
 	
 	
-	public ResultSet insertPurchase(PurchaseBean b) throws SQLException{ //내용 삽입하기
+	public int insertPurchase(PurchaseBean b) throws SQLException{ //내용 삽입하기
 	sql = "insert into purchase(bcode, bname, baddr, bnumber, brepresent) "
 			+ "values(?,?,?,?,?)";
-	
+	int r = 0;
 	try {
 		psmt = conn.prepareStatement(sql);
 		
@@ -67,7 +67,7 @@ public class PurchaseDao {
 		psmt.setString(3, b.getBaddr());
 		psmt.setInt(4, b.getBnumber());
 		psmt.setString(5, b.getBrepresent());
-		rs = psmt.executeQuery();
+		r = psmt.executeUpdate();
 		psmt.close();
 		conn.close();
 	} 	
@@ -76,10 +76,10 @@ public class PurchaseDao {
 
 	}
 	
-	finally {
-		close();
-	}
-	return rs;
+//	finally {
+//		close();
+//	}
+	return r;
 	
 }
 
@@ -96,9 +96,9 @@ public class PurchaseDao {
 			e.printStackTrace();
 		}
 		
-		finally {
-			close();
-		}
+//		finally {
+//			close();
+//		}
 		return rs;	
 		
 	}
@@ -118,9 +118,9 @@ public class PurchaseDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		finally {
-			close();
-		}
+//		finally {
+//			close();
+//		}
 		return rs;
 	}
 	
