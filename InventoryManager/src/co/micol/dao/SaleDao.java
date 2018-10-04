@@ -29,20 +29,20 @@ public class SaleDao {
 		}
 	}
 
-//	public ResultSet saleView() throws SQLException { // 조회
-//		sql = "select * from sale";
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			rs = psmt.executeQuery();
-//		}
-//
-//		catch (SQLException e) {
-//			e.printStackTrace();
+	public ResultSet saleView() throws SQLException { // 조회
+		sql = "select * from sale";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+		}
+
+		catch (SQLException e) {
+			e.printStackTrace();
 //		} finally {
 //			close();
-//		}
-//		return rs;
-//	}
+		}
+		return rs;
+	}
 
 	public int insertsale(SaleBean b) throws SQLException { // 내용 삽입하기
 		sql = "insert into sale(scode, sname, saddr, snumber, srepresent) " + "values(?,?,?,?,?)";
@@ -68,41 +68,41 @@ public class SaleDao {
 		return r;
 
 	}
-//
-//	public ResultSet deletesale(String scode) throws SQLException { // 삭제
-//		sql = "delete from sale where scode = ?";
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, scode);
-//			rs = psmt.executeQuery();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//
-//		finally {
-//			close();
-//		}
-//		return rs;
-//
-//	}
-//
-//	public ResultSet editsale(SaleBean d) throws SQLException { // 수정
-//		sql = "update sale set sname = ?, saddr = ?," + "snumber = ?, srepresent =? where scode = ?";
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, d.getSname());
-//			psmt.setString(2, d.getSaddr());
-//			psmt.setInt(3, d.getSnumber());
-//			psmt.setString(4, d.getSrepresent());
-//			psmt.setString(5, d.getScode());
-//			rs = psmt.executeQuery();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-//		return rs;
-//	}
+
+	public ResultSet deletesale(String scode) throws SQLException { // 삭제
+		sql = "delete from sale where scode = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, scode);
+			rs = psmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		finally {
+			close();
+		}
+		return rs;
+
+	}
+
+	public ResultSet editsale(SaleBean d) throws SQLException { // 수정
+		sql = "update sale set sname = ?, saddr = ?," + "snumber = ?, srepresent =? where scode = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, d.getSname());
+			psmt.setString(2, d.getSaddr());
+			psmt.setInt(3, d.getSnumber());
+			psmt.setString(4, d.getSrepresent());
+			psmt.setString(5, d.getScode());
+			rs = psmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return rs;
+	}
 
 	public void close() throws SQLException { // 객체닫음
 		psmt.close();
