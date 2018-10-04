@@ -37,5 +37,9 @@ public class SaleBean {			//판매업체관리
 		this.srepresent = srepresent;
 	}
 	
-	
+	@Override
+	public String toString() {   //select 출력부
+		System.out.println(scode + "\t" + sname + "\t" + saddr + "\t" + snumber + "\t" + srepresent + "\t" );
+		return null;
+	}
 }
