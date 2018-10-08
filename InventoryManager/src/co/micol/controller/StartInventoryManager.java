@@ -20,6 +20,8 @@ public class StartInventoryManager {
 			int menu = sc.nextInt();
 			sc.nextLine();
 			
+			
+			
 			if (menu == 0)
 				rp.PurchaseView();
 			else if (menu == 1)
