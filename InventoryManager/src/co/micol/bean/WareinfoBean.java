@@ -24,6 +24,10 @@ public class WareinfoBean {		//창고정보
 	public void setWinfo(String winfo) {
 		this.winfo = winfo;
 	}
+	public void toppp() {
+		// TODO Auto-generated method stub
+		System.out.printf("%s\t %s\t %s\t \n",wcode,wcode,winfo);
+	}
 	
 	
 }

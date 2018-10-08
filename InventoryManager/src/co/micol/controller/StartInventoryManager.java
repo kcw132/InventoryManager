@@ -16,7 +16,7 @@ public class StartInventoryManager {
 		SaleModel rs = new SaleModel();
 
 		while (true) {
-			System.out.println("메뉴를 선택하세요.");
+			menu();
 			int menu = sc.nextInt();
 			sc.nextLine();
 			
@@ -43,5 +43,13 @@ public class StartInventoryManager {
 			}
 		}
 
+	}
+	
+	public static void menu() {
+		System.out.println("메뉴를 선택하세요.");
+		System.out.println("0.구매업체리스트");
+		System.out.println("1.구매업체입력");
+		
+		
 	}
 }
