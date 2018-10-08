@@ -37,5 +37,10 @@ public class ProductBean {		//품목정보화면
 		this.unit = unit;
 	} 
 	
-	
+public void toppp() {
+		
+		System.out.printf("%s\t %s\t %s\t %s\t %s\t\n",ccode,pcode,pname,stan,unit);
+		
+		
+	}
 }
