@@ -49,7 +49,13 @@ public class StartInventoryManager {
 		System.out.println("메뉴를 선택하세요.");
 		System.out.println("0.구매업체리스트");
 		System.out.println("1.구매업체입력");
-		
+		System.out.println("2.구매업체삭제");
+		System.out.println("3.구매업체수정");
+		System.out.println("4.판매업체리스트");
+		System.out.println("5.판매업체입력");
+		System.out.println("6.판매업체삭제");
+		System.out.println("7.판매업체스장");
+		System.out.println("8.메뉴종료");
 		
 	}
 }
