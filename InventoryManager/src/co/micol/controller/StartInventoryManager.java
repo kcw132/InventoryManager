@@ -34,7 +34,7 @@ public class StartInventoryManager {
 				}
 			} 
 			else if (menu == 2) {
-				purchasemenu();
+				Waremenu();
 				menu = sc.nextInt();
 				if (menu == 1) {
 					wm.WareinfoView();
@@ -45,7 +45,7 @@ public class StartInventoryManager {
 				} 
 			}
 			else if (menu == 3) {
-				Waremenu();
+				purchasemenu();
 				menu = sc.nextInt();
 				if (menu == 1) {
 					rp.PurchaseView();
