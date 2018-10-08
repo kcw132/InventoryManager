@@ -35,7 +35,7 @@ public class SaleModel {
 			} while (rs.next());
 		} else
 			System.out.println("게시글이 존재하지 않습니다.");
-		rs.close();
+
 	}
 
 	public void insertsale() throws SQLException { // 입력
@@ -54,25 +54,26 @@ public class SaleModel {
 		bean.setSrepresent(sc.nextLine());
 
 		int r = dao.insertsale(bean);
-		sc.close();
+
 		if (r>0) {
 			System.out.println("사용자를 입력하였습니다.");
 		} else
 			System.out.println("사용자 수정 실패");
-		rs.close();
+
 	}
 
 	public void deletesale() throws SQLException { // 사용자 삭제
+		saleView();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("======================");
 		System.out.println("삭제할 사용자 ID를 입력하세요");
 		rs = dao.deletesale(sc.next());
-		sc.close();
+
 		if (rs.next()) {
 			System.out.println("사용자를 삭제하였습니다.");
 		} else
 			System.out.println("사용자 삭제 실패");
-		rs.close();
+
 	}
 
 	public void editsale() throws SQLException { // 사용자 수정
@@ -90,14 +91,14 @@ public class SaleModel {
 		sc.nextLine();
 		System.out.println("구매처의 대표자명을 입력하세요");
 		bean.setSrepresent(sc.nextLine());
-		sc.close();
+
 
 		rs = dao.editsale(bean);
 		if (rs.next()) {
 			System.out.println("사용자를 수정하였습니다.");
 		} else
 			System.out.println("사용자 수정 실패");
-		rs.close();
+
 	}
 
 }

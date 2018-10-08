@@ -20,12 +20,11 @@ public class StartInventoryManager {
 			int menu = sc.nextInt();
 			sc.nextLine();
 			
-			
-			
+						
 			if (menu == 0)
 				rp.PurchaseView();
-			else if (menu == 1)
-				rp.insertPurchase();
+			else if (menu == 1) 
+				rp.insertPurchase();							
 			else if (menu == 2)
 				rp.deletePurchase();
 			else if (menu == 3)

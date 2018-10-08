@@ -34,7 +34,7 @@ public class PurchaseModel {
 				bean.toString();						
 			} while(rs.next());
 		} else System.out.println("게시글이 존재하지 않습니다.");
-		rs.close();
+
 	}
 	
 	
@@ -55,24 +55,25 @@ public class PurchaseModel {
 	
 	int r = dao.insertPurchase(bean);
 	sc.close();
-	if(rs.next()) {
+	if(r!=0) {
 		System.out.println("사용자를 수정하였습니다.");
 	} else System.out.println("사용자 수정 실패");
-	rs.close();
+	
 }
 	
 	
 	
 	public void deletePurchase( ) throws SQLException {  //사용자 삭제
+		PurchaseView();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("======================");
 		System.out.println("삭제할 사용자 ID를 입력하세요");
 		rs = dao.deletePurchase(sc.next());
-		sc.close();
+		
 		if(rs.next()) {
 			System.out.println("사용자를 삭제하였습니다.");
 		} else System.out.println("사용자 삭제 실패");
-		rs.close();
+
 	}
 	
 	
@@ -91,13 +92,13 @@ public class PurchaseModel {
 		sc.nextLine();
 		System.out.println("구매처의 대표자명을 입력하세요");
 		bean.setBrepresent(sc.nextLine());
-		sc.close();
+
 		
 		rs = dao.editPurchase(bean);
 		if(rs.next()) {
 			System.out.println("사용자를 수정하였습니다.");			
 		} else System.out.println("사용자 수정 실패");
-		rs.close();
+
 	}	
 	
 }
