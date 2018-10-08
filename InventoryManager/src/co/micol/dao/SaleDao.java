@@ -20,7 +20,7 @@ public class SaleDao {
 		try {
 			String user = "micol";
 			String pw = "1234";
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@192.168.0.25:1521:xe";
 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(url, user, pw);
