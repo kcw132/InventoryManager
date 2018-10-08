@@ -18,11 +18,14 @@ public class StartInventoryManager {
 		while (true) {
 			menu();
 			int menu = sc.nextInt();
-			sc.nextLine();
-			
-						
-			if (menu == 0)
+			sc.nextLine();			
+			if (menu == 0) {
 				rp.PurchaseView();
+				menu = sc.nextInt();
+				if(menu==1) {
+					rp.PurchaseView();
+				}
+			}
 			else if (menu == 1) 
 				rp.insertPurchase();							
 			else if (menu == 2)
