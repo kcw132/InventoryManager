@@ -16,19 +16,28 @@ public class StartInventoryManager {
 		SaleModel rs = new SaleModel();
 
 		while (true) {
-			menu();
+			mainmenu();
 			int menu = sc.nextInt();
 			sc.nextLine();			
-			if (menu == 0) {
-				rp.PurchaseView();
+			if (menu == 2) {
+				purchasemenu();
 				menu = sc.nextInt();
 				if(menu==1) {
 					rp.PurchaseView();
 				}
+				else if(menu==2) {
+					rp.insertPurchase();
+				}
+				else if(menu==3) {
+					rp.deletePurchase();
+				}
+				else if(menu==4) {
+					rp.editPurchase();
+				}
 			}
 			else if (menu == 1) 
 				rp.insertPurchase();							
-			else if (menu == 2)
+			else if (menu == 0)
 				rp.deletePurchase();
 			else if (menu == 3)
 				rp.editPurchase();
@@ -40,7 +49,7 @@ public class StartInventoryManager {
 				rs.deletesale();
 			else if (menu == 7)
 				rs.editsale();
-			else if (menu == 8) {
+			else if (menu == 4) {
 				System.out.println("프로그램을 종료합니다.");
 				break;
 			}
@@ -48,17 +57,19 @@ public class StartInventoryManager {
 
 	}
 	
-	public static void menu() {
+	public static void mainmenu() {
 		System.out.println("메뉴를 선택하세요.");
-		System.out.println("0.구매업체리스트");
-		System.out.println("1.구매업체입력");
-		System.out.println("2.구매업체삭제");
-		System.out.println("3.구매업체수정");
-		System.out.println("4.판매업체리스트");
-		System.out.println("5.판매업체입력");
-		System.out.println("6.판매업체삭제");
-		System.out.println("7.판매업체스장");
-		System.out.println("8.메뉴종료");
+		System.out.println("0.품목정보관리");
+		System.out.println("1.창고정보관리");
+		System.out.println("2.구매업체관리");
+		System.out.println("3.판매업체관리");
+		System.out.println("4.프로그램종료");
 		
+	}
+	public static void purchasemenu() {
+		System.out.println("1.구매업체조회");
+		System.out.println("2.구매업체입력");
+		System.out.println("3.구매업체삭제");
+		System.out.println("4.구매업체수정");
 	}
 }
