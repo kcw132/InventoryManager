@@ -14,6 +14,7 @@ public class OutterDao {
 	private String sql;
 	private PreparedStatement psmt;
 	private ResultSet rs;
+	private int r;
 
 
 	public OutterDao() { // 생성자
@@ -29,8 +30,8 @@ public class OutterDao {
 		}
 	}
 
-	public ResultSet saleView() throws SQLException { // 조회
-		sql = "select * from sale";
+	public ResultSet outterView() throws SQLException { // 조회
+		sql = "select * from Outter";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
@@ -45,7 +46,7 @@ public class OutterDao {
 	}
 
 	public int insertoutter(OutterBean b) throws SQLException { // 내용 삽입하기
-		sql = "insert into sale(pannum, lnum, pcode, pname, outamount, price, tprice, outdate, pancom) " + "values('p'||to_char(sysdate,'yyyymm')||,?,?,?,?,?,?,to_char(sysdate,'yyyymmdd'),?)";
+		sql = "insert into sale(pannum, lnum, pcode, pname, outamount, price, tprice, outdate, pancom) " + "values('s'||to_char(sysdate,'yyyymm')||,?,?,?,?,?,?,to_char(sysdate,'yyyymmdd'),?)";
 		int r = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -71,11 +72,11 @@ public class OutterDao {
 
 	}
 
-	public ResultSet deletesale(String scode) throws SQLException { // 삭제
-		sql = "delete from sale where scode = ?";
+	public ResultSet deleteoutter(String pannum) throws SQLException { // 삭제
+		sql = "delete from sale where pannum = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, scode);
+			psmt.setString(1, pannum);
 			rs = psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -88,15 +89,19 @@ public class OutterDao {
 
 	}
 
-	public ResultSet editsale(SaleBean d) throws SQLException { // 수정
-		sql = "update sale set sname = ?, saddr = ?," + "snumber = ?, srepresent =? where scode = ?";
+	public ResultSet editoutter(OutterBean d) throws SQLException { // 수정
+		sql = "update sale set  lnum= ?, pcode = ?, pname = ?, outamount = ?, price =?, tprice = ?,pancom = ? where pannum = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, d.getSname());
-			psmt.setString(2, d.getSaddr());
-			psmt.setInt(3, d.getSnumber());
-			psmt.setString(4, d.getSrepresent());
-			psmt.setString(5, d.getScode());
+			psmt.setInt(1, d.getLnum());
+			psmt.setString(2, d.getPcode());
+			psmt.setString(3, d.getPname());
+			psmt.setInt(4, d.getOutamount());
+			psmt.setInt(5, d.getPrice());
+			psmt.setInt(6, d.getTprice());
+			psmt.setString(7, d.getPancom());
+			psmt.setString(8, d.getPannum());
+			r = psmt.executeUpdate();
 			rs = psmt.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();

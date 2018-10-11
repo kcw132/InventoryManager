@@ -23,7 +23,7 @@ public class StartInventoryManager {
 			int menu = sc.nextInt();
 			sc.nextLine();
 			if (menu == 1) {
-				productmenu();
+				productmenu();           
 				menu = sc.nextInt();
 				if (menu == 1) {
 					pm.ProductAll();

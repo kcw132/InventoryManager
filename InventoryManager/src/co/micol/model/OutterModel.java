@@ -23,18 +23,22 @@ public class OutterModel {
 
 
 
-	public void saleView() throws SQLException { // 조회
-		rs = dao.saleView();
+	public void outterView() throws SQLException { // 조회
+		rs = dao.outterView();
 		if (rs.next()) {
 			do {
-				bean = new SaleBean();
-				bean.setScode(rs.getString("scode"));
-				bean.setSname(rs.getString("sname"));
-				bean.setSaddr(rs.getString("saddr"));
-				bean.setSnumber(rs.getInt("snumber"));
-				bean.setSrepresent(rs.getString("srepresent"));
+				bean = new OutterBean();
+				bean.setPannum(rs.getString("pannum"));
+				bean.setLnum(rs.getString("lnum"));
+				bean.setPcode(rs.getString("pcode"));
+				bean.setPname(rs.getInt("pname"));
+				bean.setOutamount(rs.getString("outamount"));
+				bean.setPrice(rs.getString("price"));
+				bean.setTprice(rs.getString("tprice"));
+				bean.setOutdate(rs.getString("outdate"));
+				bean.setPancom(rs.getString("pancom"));
 				bean.toString();
-			} while (rs.next());dddd
+			} while (rs.next());
 		} else
 			System.out.println("게시글이 존재하지 않습니다.");
 
