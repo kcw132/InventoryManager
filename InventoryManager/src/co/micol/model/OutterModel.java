@@ -34,7 +34,7 @@ public class OutterModel {
 				bean.setSnumber(rs.getInt("snumber"));
 				bean.setSrepresent(rs.getString("srepresent"));
 				bean.toString();
-			} while (rs.next());
+			} while (rs.next());dddd
 		} else
 			System.out.println("게시글이 존재하지 않습니다.");
 
