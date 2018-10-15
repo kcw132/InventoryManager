@@ -59,12 +59,7 @@ public class EnterBean {		//입고화면
 	public void setEnterdate(String enterdate) {
 		this.enterdate = enterdate;
 	}
-	public String getEntercom() {
-		return entercom;
-	}
-	public void setEntercom(String entercom) {
-		this.entercom = entercom;
-	}
+	
 	
 	
 }
