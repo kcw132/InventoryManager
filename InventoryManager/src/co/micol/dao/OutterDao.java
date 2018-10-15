@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import co.micol.bean.OutterBean;
-import co.micol.bean.SaleBean;
 
 public class OutterDao {
 	private Connection conn;
