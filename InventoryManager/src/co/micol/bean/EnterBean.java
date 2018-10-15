@@ -9,7 +9,7 @@ public class EnterBean {		//입고화면
 	private int price;			//단가
 	private int tprice;			//금액
 	private String enterdate;	//구매일자
-
+	private String entercom;	//구매처
 	
 	public String getGoonum() {
 		return goonum;
@@ -59,7 +59,19 @@ public class EnterBean {		//입고화면
 	public void setEnterdate(String enterdate) {
 		this.enterdate = enterdate;
 	}
-	
+	public String getEntercom() {
+		return entercom;
+	}
+	public void setEntercom(String entercom) {
+		this.entercom = entercom;
+	}
+	@Override
+	public String toString() {
+		System.out.println("goonum=" + goonum + ", lnum=" + lnum + ", pcode=" + pcode + ", pname=" + pname
+				+ ", inamount=" + inamount + ", price=" + price + ", tprice=" + tprice + ", enterdate=" + enterdate
+				+ ", entercom=" + entercom);
+		return null;
+	}
 	
 	
 }
