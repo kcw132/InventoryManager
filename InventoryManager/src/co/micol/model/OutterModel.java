@@ -24,17 +24,17 @@ public class OutterModel {
 
 
 	public void outterView() throws SQLException { // 조회
-		rs = dao.outterView();;;;
+		rs = dao.outterView();
 		if (rs.next()) {
 			do {
 				bean = new OutterBean();
 				bean.setPannum(rs.getString("pannum"));
-				bean.setLnum(rs.getString("lnum"));
+				bean.setLnum(rs.getInt("lnum"));
 				bean.setPcode(rs.getString("pcode"));
-				bean.setPname(rs.getInt("pname"));
-				bean.setOutamount(rs.getString("outamount"));
-				bean.setPrice(rs.getString("price"));
-				bean.setTprice(rs.getString("tprice"));
+				bean.setPname(rs.getString("pname"));
+				bean.setOutamount(rs.getInt("outamount"));
+				bean.setPrice(rs.getInt("price"));
+				bean.setTprice(rs.getInt("tprice"));
 				bean.setOutdate(rs.getString("outdate"));
 				bean.setPancom(rs.getString("pancom"));
 				bean.toString();
@@ -75,12 +75,12 @@ public class OutterModel {
 
 	}
 
-	public void deletesale() throws SQLException { // 사용자 삭제
-		saleView();
+	public void deleteoutter() throws SQLException { // 사용자 삭제
+		outterView();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("======================");
 		System.out.println("삭제할 사용자 ID를 입력하세요");
-		rs = dao.deletesale(sc.next());
+		rs = dao.deleteoutter(sc.next());
 
 		if (rs.next()) {
 			System.out.println("사용자를 삭제하였습니다.");
@@ -89,24 +89,32 @@ public class OutterModel {
 
 	}
 
-	public void editsale() throws SQLException { // 사용자 수정
+	public void editoutter() throws SQLException { // 사용자 수정
 		Scanner sc = new Scanner(System.in);
-		saleView();
+		outterView();
 		System.out.println("======================");
-		System.out.println("구매처의 코드를 선력하세요");
-		bean.setScode(sc.nextLine());
-		System.out.println("구매처의 이름을 입력하세요");
-		bean.setSname(sc.nextLine());
-		System.out.println("구매처의 주소를 입력하세요");
-		bean.setSaddr(sc.nextLine());
-		System.out.println("구매처의 전화번호를 입력하세요");
-		bean.setSnumber(sc.nextInt());
+		System.out.println("판매처의 판매번호를 선력하세요");
+		bean.setPannum(sc.nextLine());
+		System.out.println("판매처의 코드를 입력하세요");
+		bean.setPcode(sc.nextLine());
+		System.out.println("판매처의 품목명을 입력하세요");
+		bean.setPname(sc.nextLine());
+		System.out.println("판매처의 수량을 입력하세요");
+		bean.setOutamount(sc.nextInt());
 		sc.nextLine();
-		System.out.println("구매처의 대표자명을 입력하세요");
-		bean.setSrepresent(sc.nextLine());
+		System.out.println("판매처의 판매가를 입력하세요");
+		bean.setPrice(sc.nextInt());
+		sc.nextLine();
+		System.out.println("판매처의 금액을 입력하세요");
+		bean.setTprice(sc.nextInt());
+		sc.nextLine();
+		System.out.println("판매처의 판매일자를 입력하세요");
+		bean.setOutdate(sc.nextLine());
+		System.out.println("판매처를 입력하세요");
+		bean.setPancom(sc.nextLine());
 
 
-		rs = dao.editsale(bean);
+		rs = dao.editoutter(bean);
 		if (rs.next()) {
 			System.out.println("사용자를 수정하였습니다.");
 		} else

@@ -1,7 +1,7 @@
 package co.micol.bean;
 
 public class OutterBean {		//출고화면
-	private String pannum;		//판매화면
+	private String pannum;		//판매번호
 	private int lnum;			//라인번호	
 	private String pcode;		//품목코드
 	private String pname;		//품목명
