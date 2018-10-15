@@ -26,5 +26,15 @@ public class EnterDao {
 			e.printStackTrace();
 		}
 	}
+	public ResultSet getDataEnter() {
+		sql = "select * from product";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		return rs;
+	}
 
 }
