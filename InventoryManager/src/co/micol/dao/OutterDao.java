@@ -31,7 +31,7 @@ public class OutterDao {
 	}
 
 	public ResultSet outterView() throws SQLException { // 조회
-		sql = "select * from Outter";
+		sql = "select * from outter";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
@@ -46,10 +46,12 @@ public class OutterDao {
 	}
 
 	public int insertoutter(OutterBean b) throws SQLException { // 내용 삽입하기
-		sql = "insert into sale(pannum, lnum, pcode, pname, outamount, price, tprice, outdate, pancom) " + "values('s'||to_char(sysdate,'yyyymm')||,?,?,?,?,?,?,to_char(sysdate,'yyyymmdd'),?)";
+		sql = "insert into outter(pannum, lnum, pcode, pname, outamount, price, tprice, pancom, outdate) " + 
+	"values('s'||to_char(sysdate,'yyyymm')||lpad(s_seq.nextval,3,0),?,?,?,?,?,?,?, to_char(sysdate,'yyyymmdd'))";
 		int r = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
+	//		psmt.setString(1, b.getPannum());
 			psmt.setInt(1, b.getLnum());
 			psmt.setString(2, b.getPcode());
 			psmt.setString(3, b.getPname());
@@ -57,6 +59,7 @@ public class OutterDao {
 			psmt.setInt(5, b.getPrice());
 			psmt.setInt(6, b.getTprice());
 			psmt.setString(7, b.getPancom());
+	//		psmt.setString(9, b.getOutdate());
 			r = psmt.executeUpdate();
 			psmt.close();
 			conn.close();
@@ -73,7 +76,7 @@ public class OutterDao {
 	}
 
 	public ResultSet deleteoutter(String pannum) throws SQLException { // 삭제
-		sql = "delete from sale where pannum = ?";
+		sql = "delete from outter where pannum = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, pannum);
@@ -90,7 +93,7 @@ public class OutterDao {
 	}
 
 	public ResultSet editoutter(OutterBean d) throws SQLException { // 수정
-		sql = "update sale set  lnum= ?, pcode = ?, pname = ?, outamount = ?, price =?, tprice = ?,pancom = ? where pannum = ?";
+		sql = "update outter set  lnum= ?, pcode = ?, pname = ?, outamount = ?, price =?, tprice = ?,pancom = ? where pannum = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, d.getLnum());

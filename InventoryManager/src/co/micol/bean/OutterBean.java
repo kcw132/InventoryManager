@@ -65,6 +65,11 @@ public class OutterBean {		//출고화면
 	public void setPancom(String pancom) {
 		this.pancom = pancom;
 	}
-	
+	@Override
+	public String toString() {   //select 출력부
+		System.out.println(pannum + "\t" + lnum + "\t" + pcode + "\t" + pname + "\t" + outamount + "\t" +
+				price + "\t" + tprice + "\t" + outdate + "\t" + pancom);
+		return null;
+	}
 	
 }

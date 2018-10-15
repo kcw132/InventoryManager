@@ -47,6 +47,8 @@ public class OutterModel {
 	public void insertoutter() throws SQLException { // 입력
 
 		Scanner sc = new Scanner(System.in);
+//		System.out.println("구매처의 출고번호를 입력하세요.");
+//		bean.setPannum(sc.nextLine());
 		System.out.println("구매처의 라인번호를 입력하세요.");
 		bean.setLnum(sc.nextInt());
 		sc.nextLine();
@@ -65,7 +67,8 @@ public class OutterModel {
 		sc.nextLine();
 		System.out.println("구매처의 판매처를 입력하세요.");
 		bean.setPancom(sc.nextLine());
-		
+//		System.out.println("구매처의 날자를 입력하세요.");
+//		bean.setOutdate(sc.nextLine());
 		int r = dao.insertoutter(bean);
 
 		if (r>0) {
@@ -95,6 +98,9 @@ public class OutterModel {
 		System.out.println("======================");
 		System.out.println("판매처의 판매번호를 선력하세요");
 		bean.setPannum(sc.nextLine());
+		System.out.println("판매처의 라인번호를 입력하세요");
+		bean.setLnum(sc.nextInt());
+		sc.nextLine();
 		System.out.println("판매처의 코드를 입력하세요");
 		bean.setPcode(sc.nextLine());
 		System.out.println("판매처의 품목명을 입력하세요");
