@@ -24,7 +24,7 @@ public class OutterModel {
 
 
 	public void outterView() throws SQLException { // 조회
-		rs = dao.outterView();
+		rs = dao.outterView();;;;
 		if (rs.next()) {
 			do {
 				bean = new OutterBean();
