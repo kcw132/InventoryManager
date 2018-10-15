@@ -9,7 +9,7 @@ public class EnterBean {		//입고화면
 	private int price;			//단가
 	private int tprice;			//금액
 	private String enterdate;	//구매일자
-	private String entercom;	//구매처
+
 	
 	public String getGoonum() {
 		return goonum;

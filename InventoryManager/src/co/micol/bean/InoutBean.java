@@ -1,7 +1,7 @@
 package co.micol.bean;
 
 public class InoutBean {			//입출고내역
-	private int ionum;				//입출고번호			
+	private int ionum;				//입출고번호		p12312 s123123	
 	private String pcode;			//품목코드
 	private String pname;			//품목명
 	private int goocount;			//입고수량
