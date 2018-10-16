@@ -3,6 +3,7 @@ package co.micol.controller;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import co.micol.model.EnterModel;
 import co.micol.model.OutterModel;
 import co.micol.model.ProductModel;
 import co.micol.model.PurchaseModel;
@@ -17,6 +18,7 @@ public class StartInventoryManager {
 		ProductModel pm = new ProductModel();
 		PurchaseModel rp = new PurchaseModel();
 		WareinfoModel wm = new WareinfoModel();
+		EnterModel em = new EnterModel();
 		SaleModel sm = new SaleModel();
 		OutterModel om = new OutterModel();
 
@@ -74,6 +76,19 @@ public class StartInventoryManager {
 			}
 			
 			else if (menu == 5) {
+				entermenu();
+				menu = sc.nextInt();
+				if (menu == 1) {
+					em.EnterShow();
+				} else if (menu == 2) {
+					em.EnterInsert();
+				} else if (menu == 3) {
+					
+				} else if (menu == 4) {
+					
+				}
+			}
+			else if (menu == 6) {
 				salemenu();
 				menu = sc.nextInt();
 				if (menu == 1) {
@@ -87,7 +102,7 @@ public class StartInventoryManager {
 				}
 			}
 			
-			else if (menu == 6) {
+			else if (menu == 7) {
 				System.out.println("프로그램을 종료합니다.");
 				break;
 			}
@@ -102,7 +117,8 @@ public class StartInventoryManager {
 		System.out.println("3.구매업체관리");
 		System.out.println("4.판매업체관리");
 		System.out.println("5.구매화면관리");
-		System.out.println("6.프로그램종료");
+		System.out.println("6.판매화면관리");
+		System.out.println("7.프로그램종료");
 
 	}
 
@@ -135,5 +151,11 @@ public class StartInventoryManager {
 		System.out.println("2.판매업체입력");
 		System.out.println("3.판매업체삭제");
 		System.out.println("4.판매업체수정");
+	}
+	public static void entermenu() {
+		System.out.println("1.구매내역조회");
+		System.out.println("2.구매내역입력");
+		System.out.println("3.구매내역삭제");
+		System.out.println("4.구매내역수정");
 	}
 }

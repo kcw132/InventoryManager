@@ -31,4 +31,24 @@ public class EnterModel {
 		}
 		return rs;
 	}
+	
+	public void EnterInsert() throws SQLException {
+		rs = null;
+		System.out.println("상품코드를 입력하세요.");
+		eb.setPcode(sce.nextLine());
+		System.out.println("상품명을 입력하세요.");
+		eb.setPname(sce.nextLine());
+		System.out.println("수량을 입력하세요.");
+		eb.setInamount(sce.nextInt());
+		System.out.println("가격을 입력하세요.");
+		eb.setPrice(sce.nextInt());
+		
+		rs = ed.insertDataEnter(eb);
+		if (rs.next()) {
+			System.out.println("상품이 입력되었습니다.");
+		} else {
+			System.out.println("상품 입력을 실패하였습니다.");
+		}
+	}
+	
 }
