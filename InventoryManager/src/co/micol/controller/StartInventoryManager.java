@@ -147,10 +147,10 @@ public class StartInventoryManager {
 	}
 	
 	public static void outtermenu() {
-		System.out.println("1.판매업체조회");
-		System.out.println("2.판매업체입력");
-		System.out.println("3.판매업체삭제");
-		System.out.println("4.판매업체수정");
+		System.out.println("1.판매내역조회");
+		System.out.println("2.판매내역입력");
+		System.out.println("3.판매내역삭제");
+		System.out.println("4.판매내역수정");
 	}
 	public static void entermenu() {
 		System.out.println("1.구매내역조회");
