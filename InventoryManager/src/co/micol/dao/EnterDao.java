@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import co.micol.bean.EnterBean;
 
@@ -12,7 +13,7 @@ public class EnterDao {
 	private Connection conn;
 	private String sql;
 	private PreparedStatement psmt;
-	private CallableStatement cs = null;
+	private CallableStatement cstmt = null;
 	private ResultSet rs;
 	
 	public EnterDao() {
@@ -39,8 +40,8 @@ public class EnterDao {
 		return rs;
 	}
 	
-	public ResultSet insertDataEnter(EnterBean eb) {
-		
+	public ResultSet insertDataEnter(EnterBean eb) throws SQLException {
+		cstmt = conn.prepareCall("{call p_insert(?,?,?,?)}");
 		
 		return rs;
 		
