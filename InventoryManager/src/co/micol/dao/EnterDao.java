@@ -41,7 +41,7 @@ public class EnterDao {
 		return rs;
 	}
 	
-	public ResultSet insertDataEnter(EnterBean eb) throws SQLException {
+	public void insertDataEnter(EnterBean eb) throws SQLException {
 		proc = "{call p_insert(?,?,?,?)}";
 		try {
 			csmt = conn.prepareCall(proc);
@@ -49,12 +49,12 @@ public class EnterDao {
 			csmt.setString(2, eb.getPname());
 			csmt.setInt(3, eb.getInamount());
 			csmt.setInt(4, eb.getPrice());
-			csmt.execute();
+			boolean a = csmt.execute();
+			System.out.println(a);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		
-		return rs;
 		
 	}
 
