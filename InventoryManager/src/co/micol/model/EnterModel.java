@@ -17,7 +17,7 @@ public class EnterModel {
 		rs = ed.getDataEnter();
 		while(rs.next()) {
 			eb = new EnterBean();
-			eb.setGoonum(rs.getString("goonum"));
+			
 			eb.setLnum(rs.getInt("lnum"));
 			eb.setPcode(rs.getString("pcode"));
 			eb.setPname(rs.getString("pname"));
@@ -25,7 +25,7 @@ public class EnterModel {
 			eb.setPrice(rs.getInt("price"));
 			eb.setTprice(rs.getInt("tprice"));
 			eb.setEnterdate(rs.getString("enterdate"));
-			eb.setEntercom(rs.getString("entercom"));
+			
 			
 			eb.toString();
 		}

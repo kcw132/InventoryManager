@@ -1,7 +1,6 @@
 package co.micol.bean;
 
 public class EnterBean {		//입고화면
-	private String goonum;		//구매번호
 	private int lnum;			//라인릴리즈
 	private String pcode;		//품목코드
 	private String pname;		//품목명
@@ -9,14 +8,9 @@ public class EnterBean {		//입고화면
 	private int price;			//단가
 	private int tprice;			//금액
 	private String enterdate;	//구매일자
-	private String entercom;	//구매처
 	
-	public String getGoonum() {
-		return goonum;
-	}
-	public void setGoonum(String goonum) {
-		this.goonum = goonum;
-	}
+	
+	
 	public int getLnum() {
 		return lnum;
 	}
@@ -59,17 +53,12 @@ public class EnterBean {		//입고화면
 	public void setEnterdate(String enterdate) {
 		this.enterdate = enterdate;
 	}
-	public String getEntercom() {
-		return entercom;
-	}
-	public void setEntercom(String entercom) {
-		this.entercom = entercom;
-	}
+	
 	@Override
 	public String toString() {
-		System.out.println("goonum=" + goonum + ", lnum=" + lnum + ", pcode=" + pcode + ", pname=" + pname
+		System.out.println( "lnum=" + lnum + ", pcode=" + pcode + ", pname=" + pname
 				+ ", inamount=" + inamount + ", price=" + price + ", tprice=" + tprice + ", enterdate=" + enterdate
-				+ ", entercom=" + entercom);
+				);
 		return null;
 	}
 	
