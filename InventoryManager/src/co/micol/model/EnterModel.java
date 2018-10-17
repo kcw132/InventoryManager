@@ -12,6 +12,7 @@ public class EnterModel {
 	private EnterBean eb = new EnterBean();
 	private Scanner sce = new Scanner(System.in);
 	private ResultSet rs;
+	private int result;
 	
 	public ResultSet EnterShow() throws SQLException {
 		rs = ed.getDataEnter();
@@ -49,8 +50,15 @@ public class EnterModel {
 	}
 	public void EnterDelete() throws SQLException {
 		rs = null;
+		System.out.println("구매내역");
 		EnterShow();
 		System.out.println("삭제할 구매내역의 구매번호를 입력하세요.");
-		
+		eb.setGoonum(sce.nextLine());
+		result = ed.deleteDataEnter(eb);
+		if(result!=0) {
+			System.out.println("구매내역을 삭제하였습니다.");
+			ed.getDataEnter();
+		}
+		else System.out.println("구매내역 삭제 실패");
 	}
 }

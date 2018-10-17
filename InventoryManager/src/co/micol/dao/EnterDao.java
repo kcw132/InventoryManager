@@ -16,6 +16,7 @@ public class EnterDao {
 	private PreparedStatement psmt;
 	private CallableStatement csmt;
 	private ResultSet rs;
+	private int n;
 	
 	public EnterDao() {
 		try {
@@ -55,7 +56,7 @@ public class EnterDao {
 			e.printStackTrace();
 		}
 	}
-	public void deleteDataEnter(EnterBean eb) {
+	public int deleteDataEnter(EnterBean eb) {
 		sql = "delete from enter where goonum = ?";
 		try{
 			psmt = conn.prepareStatement(sql);
@@ -63,5 +64,7 @@ public class EnterDao {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+		return n;
 	}
+	
 }
