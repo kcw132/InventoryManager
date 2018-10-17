@@ -47,5 +47,10 @@ public class EnterModel {
 		ed.insertDataEnter(eb);
 		
 	}
-	
+	public void EnterDelete() throws SQLException {
+		rs = null;
+		EnterShow();
+		System.out.println("삭제할 구매내역의 구매번호를 입력하세요.");
+		
+	}
 }

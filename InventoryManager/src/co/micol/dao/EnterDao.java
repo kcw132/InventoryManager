@@ -55,5 +55,13 @@ public class EnterDao {
 			e.printStackTrace();
 		}
 	}
-	
+	public void deleteDataEnter(EnterBean eb) {
+		sql = "delete from enter where goonum = ?";
+		try{
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, eb.getGoonum());
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

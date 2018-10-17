@@ -27,7 +27,7 @@ public class StartInventoryManager {
 			int menu = sc.nextInt();
 			sc.nextLine();
 			if (menu == 1) {
-				productmenu();           
+				productmenu();
 				menu = sc.nextInt();
 				if (menu == 1) {
 					pm.ProductAll();
@@ -36,8 +36,7 @@ public class StartInventoryManager {
 				} else if (menu == 3) {
 					pm.ProductUpdate();
 				}
-			} 
-			else if (menu == 2) {
+			} else if (menu == 2) {
 				Waremenu();
 				menu = sc.nextInt();
 				if (menu == 1) {
@@ -46,9 +45,8 @@ public class StartInventoryManager {
 					wm.WareinfoInsert();
 				} else if (menu == 3) {
 					wm.WareinfoUpdate();
-				} 
-			}
-			else if (menu == 3) {
+				}
+			} else if (menu == 3) {
 				purchasemenu();
 				menu = sc.nextInt();
 				if (menu == 1) {
@@ -60,8 +58,7 @@ public class StartInventoryManager {
 				} else if (menu == 4) {
 					rp.editPurchase();
 				}
-			}
-			else if (menu == 4) {
+			} else if (menu == 4) {
 				salemenu();
 				menu = sc.nextInt();
 				if (menu == 1) {
@@ -74,7 +71,7 @@ public class StartInventoryManager {
 					sm.editsale();
 				}
 			}
-			
+
 			else if (menu == 5) {
 				entermenu();
 				menu = sc.nextInt();
@@ -82,13 +79,8 @@ public class StartInventoryManager {
 					em.EnterShow();
 				} else if (menu == 2) {
 					em.EnterInsert();
-				} else if (menu == 3) {
-					
-				} else if (menu == 4) {
-					
 				}
-			}
-			else if (menu == 6) {
+			} else if (menu == 6) {
 				salemenu();
 				menu = sc.nextInt();
 				if (menu == 1) {
@@ -101,7 +93,7 @@ public class StartInventoryManager {
 					om.editoutter();
 				}
 			}
-			
+
 			else if (menu == 7) {
 				System.out.println("프로그램을 종료합니다.");
 				break;
@@ -134,24 +126,27 @@ public class StartInventoryManager {
 		System.out.println("2.물품정보입력");
 		System.out.println("3.물품정보수정");
 	}
+
 	public static void Waremenu() {
 		System.out.println("1.창고정보조회");
 		System.out.println("2.창고정보입력");
 		System.out.println("3.물품정보수정");
 	}
+
 	public static void salemenu() {
 		System.out.println("1.판매업체조회");
 		System.out.println("2.판매업체입력");
 		System.out.println("3.판매업체삭제");
 		System.out.println("4.판매업체수정");
 	}
-	
+
 	public static void outtermenu() {
 		System.out.println("1.판매내역조회");
 		System.out.println("2.판매내역입력");
 		System.out.println("3.판매내역삭제");
 		System.out.println("4.판매내역수정");
 	}
+
 	public static void entermenu() {
 		System.out.println("1.구매내역조회");
 		System.out.println("2.구매내역입력");
