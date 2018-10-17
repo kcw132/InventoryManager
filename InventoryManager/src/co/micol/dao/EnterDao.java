@@ -51,7 +51,7 @@ public class EnterDao {
 			csmt.setInt(4, eb.getPrice());
 			boolean a = csmt.execute();
 			System.out.println(a);
-		}catch(Exception e){
+		}catch(Exception e){	
 			e.printStackTrace();
 		}
 		
