@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 
 import co.micol.bean.OutterBean;
 
@@ -47,22 +48,26 @@ public class OutterDao {
 		return rs;
 	}
 
-	public void insertoutter(OutterBean b) throws SQLException { // 내용 삽입하기
-		
-		proc = "{call s_outter(?,?,?,?)}";
+	public ResultSet insertoutter(OutterBean b)   { // 내용 삽입하기
+		CallableStatement csmt;
+		String proc = "{call s_outter(?,?,?,?,?)}";
 		try {
 			csmt = conn.prepareCall(proc);
 			csmt.setString(1, b.getPcode());
 			csmt.setString(2, b.getPname());
 			csmt.setInt(3, b.getOutamount());
 			csmt.setInt(4, b.getPrice());
-			boolean a = csmt.execute();
-			System.out.println(a);
+			csmt.registerOutParameter(5, Types.VARCHAR);
+			csmt.execute();
+			String grade = csmt.getString(5);
+			System.out.println(grade);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			
+				
+				e.printStackTrace();
 
 		}
-
+			return rs;
 //		finally {
 //			close();
 //		}
