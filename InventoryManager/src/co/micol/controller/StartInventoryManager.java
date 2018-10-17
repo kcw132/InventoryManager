@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import co.micol.model.EnterModel;
+import co.micol.model.InoutModel;
+import co.micol.model.InventoryModel;
 import co.micol.model.OutterModel;
 import co.micol.model.ProductModel;
 import co.micol.model.PurchaseModel;
@@ -21,6 +23,8 @@ public class StartInventoryManager {
 		EnterModel em = new EnterModel();
 		SaleModel sm = new SaleModel();
 		OutterModel om = new OutterModel();
+		InoutModel inm = new InoutModel();
+		InventoryModel ivm = new InventoryModel();
 
 		while (true) {
 			mainmenu();
@@ -95,8 +99,21 @@ public class StartInventoryManager {
 					om.deleteoutter();
 				}
 			}
-
 			else if (menu == 7) {
+				inventorymenu();
+				menu = sc.nextInt();
+				if (menu == 1) {
+					ivm.Inventoryshow();
+				}
+			}
+			else if (menu == 8) {
+				inoutmenu();
+				menu = sc.nextInt();
+				if (menu == 1) {
+					inm.InoutShow();
+				}
+			}
+			else if (menu == 9) {
 				System.out.println("프로그램을 종료합니다.");
 				break;
 			}
@@ -110,9 +127,11 @@ public class StartInventoryManager {
 		System.out.println("2.창고정보관리");
 		System.out.println("3.구매업체관리");
 		System.out.println("4.판매업체관리");
-		System.out.println("5.구매화면관리");
-		System.out.println("6.판매화면관리");
-		System.out.println("7.프로그램종료");
+		System.out.println("5.구매관리");
+		System.out.println("6.판매관리");
+		System.out.println("7.재고");
+		System.out.println("8.입출고내역");
+		System.out.println("9.프로그램종료");
 
 	}
 
@@ -153,5 +172,11 @@ public class StartInventoryManager {
 		System.out.println("1.구매내역조회");
 		System.out.println("2.구매내역입력");
 		System.out.println("3.구매내역삭제");
+	}
+	public static void inventorymenu() {
+		System.out.println("1.재고조회");
+	}
+	public static void inoutmenu() {
+		System.out.println("1.입출고내역조회");
 	}
 }

@@ -11,7 +11,7 @@ public class InventoryDao {
 	private PreparedStatement psmt;
 	private ResultSet rs;
 	
-	public void InoutDao() {
+	public InventoryDao() {
 		try {
 			String url = "jdbc:oracle:thin:@192.168.0.25:1521:xe";
 			String user = "micol";
@@ -25,7 +25,7 @@ public class InventoryDao {
 		}
 	}
 	public ResultSet getDataInventory() {
-		sql = "select * from inventory";
+		sql = "select * from Inventory";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();

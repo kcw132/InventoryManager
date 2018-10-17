@@ -7,23 +7,23 @@ import co.micol.bean.InventoryBean;
 import co.micol.dao.InventoryDao;
 
 public class InventoryModel {
-	private InventoryDao id = new InventoryDao();
-	private InventoryBean ib = new InventoryBean();
+	private InventoryDao ivd = new InventoryDao();
+	private InventoryBean ivb = new InventoryBean();
 	private ResultSet rs;
 	
 	public ResultSet Inventoryshow() throws SQLException {
-		rs = id.getDataInventory();
+		rs = ivd.getDataInventory();
 		while(rs.next()) {
-			ib = new InventoryBean();
+			ivb = new InventoryBean();
 			
-			ib.setPcode(rs.getString("pcode"));
-			ib.setPname(rs.getString("pname"));
-			ib.setPrice(rs.getInt("price"));
-			ib.setGooname(rs.getString("gooname"));
-			ib.setWlocation(rs.getString("wlocation"));
-			ib.setIamount(rs.getInt("iamount"));
+			ivb.setPcode(rs.getString("pcode"));
+			ivb.setPname(rs.getString("pname"));
+			ivb.setPrice(rs.getInt("price"));
+			ivb.setGooname(rs.getString("gooname"));
+			ivb.setWlocation(rs.getString("wlocation"));
+			ivb.setIamount(rs.getInt("iamount"));
 			
-			ib.toString();
+			ivb.toString();
 		}
 		return rs;
 	}
