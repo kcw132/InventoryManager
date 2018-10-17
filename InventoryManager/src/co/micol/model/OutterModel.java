@@ -49,9 +49,7 @@ public class OutterModel {
 		Scanner sc = new Scanner(System.in);
 //		System.out.println("구매처의 출고번호를 입력하세요.");
 //		bean.setPannum(sc.nextLine());
-		System.out.println("구매처의 라인번호를 입력하세요.");
-		bean.setLnum(sc.nextInt());
-		sc.nextLine();
+		
 		System.out.println("구매처의 품목코드를 입력하세요.");
 		bean.setPcode(sc.nextLine());
 		System.out.println("구매처의 품목명을 입력하세요.");
@@ -62,21 +60,19 @@ public class OutterModel {
 		System.out.println("구매처의 판매가를 입력하세요.");
 		bean.setPrice(sc.nextInt());
 		sc.nextLine();
-		System.out.println("구매처의 금액를 입력하세요.");
-		bean.setTprice(sc.nextInt());
-		sc.nextLine();
-		System.out.println("구매처의 판매처를 입력하세요.");
-		bean.setPancom(sc.nextLine());
-//		System.out.println("구매처의 날자를 입력하세요.");
-//		bean.setOutdate(sc.nextLine());
-		int r = dao.insertoutter(bean);
+		
+		dao.insertoutter(bean);
 
-		if (r>0) {
-			System.out.println("사용자를 입력하였습니다.");
-		} else
-			System.out.println("사용자 수정 실패");
-
-	}
+//		if (r>0) {
+//			System.out.println("사용자를 입력하였습니다.");
+//		} else
+//			System.out.println("사용자 수정 실패");
+//
+}
+	
+	
+	
+	
 
 	public void deleteoutter() throws SQLException { // 사용자 삭제
 		outterView();
@@ -92,40 +88,5 @@ public class OutterModel {
 
 	}
 
-	public void editoutter() throws SQLException { // 사용자 수정
-		Scanner sc = new Scanner(System.in);
-		outterView();
-		System.out.println("======================");
-		System.out.println("판매처의 판매번호를 선력하세요");
-		bean.setPannum(sc.nextLine());
-		System.out.println("판매처의 라인번호를 입력하세요");
-		bean.setLnum(sc.nextInt());
-		sc.nextLine();
-		System.out.println("판매처의 코드를 입력하세요");
-		bean.setPcode(sc.nextLine());
-		System.out.println("판매처의 품목명을 입력하세요");
-		bean.setPname(sc.nextLine());
-		System.out.println("판매처의 수량을 입력하세요");
-		bean.setOutamount(sc.nextInt());
-		sc.nextLine();
-		System.out.println("판매처의 판매가를 입력하세요");
-		bean.setPrice(sc.nextInt());
-		sc.nextLine();
-		System.out.println("판매처의 금액을 입력하세요");
-		bean.setTprice(sc.nextInt());
-		sc.nextLine();
-		System.out.println("판매처의 판매일자를 입력하세요");
-		bean.setOutdate(sc.nextLine());
-		System.out.println("판매처를 입력하세요");
-		bean.setPancom(sc.nextLine());
-
-
-		rs = dao.editoutter(bean);
-		if (rs.next()) {
-			System.out.println("사용자를 수정하였습니다.");
-		} else
-			System.out.println("사용자 수정 실패");
-
-	}
 
 }

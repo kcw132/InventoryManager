@@ -1,5 +1,6 @@
 package co.micol.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,7 +12,9 @@ import co.micol.bean.OutterBean;
 public class OutterDao {
 	private Connection conn;
 	private String sql;
+	private String proc;
 	private PreparedStatement psmt;
+	private CallableStatement csmt;
 	private ResultSet rs;
 	private int r;
 
@@ -44,24 +47,17 @@ public class OutterDao {
 		return rs;
 	}
 
-	public int insertoutter(OutterBean b) throws SQLException { // 내용 삽입하기
-		sql = "insert into outter(pannum, lnum, pcode, pname, outamount, price, tprice, pancom, outdate) " + 
-	"values('s'||to_char(sysdate,'yyyymm')||lpad(s_seq.nextval,3,0),?,?,?,?,?,?,?, to_char(sysdate,'yyyymmdd'))";
-		int r = 0;
+	public void insertoutter(OutterBean b) throws SQLException { // 내용 삽입하기
+		
+		proc = "{call s_outter(?,?,?,?)}";
 		try {
-			psmt = conn.prepareStatement(sql);
-	//		psmt.setString(1, b.getPannum());
-			psmt.setInt(1, b.getLnum());
-			psmt.setString(2, b.getPcode());
-			psmt.setString(3, b.getPname());
-			psmt.setInt(4, b.getOutamount());
-			psmt.setInt(5, b.getPrice());
-			psmt.setInt(6, b.getTprice());
-			psmt.setString(7, b.getPancom());
-	//		psmt.setString(9, b.getOutdate());
-			r = psmt.executeUpdate();
-			psmt.close();
-			conn.close();
+			csmt = conn.prepareCall(proc);
+			csmt.setString(1, b.getPcode());
+			csmt.setString(2, b.getPname());
+			csmt.setInt(3, b.getOutamount());
+			csmt.setInt(4, b.getPrice());
+			boolean a = csmt.execute();
+			System.out.println(a);
 		} catch (SQLException e) {
 			e.printStackTrace();
 
@@ -70,7 +66,7 @@ public class OutterDao {
 //		finally {
 //			close();
 //		}
-		return r;
+		
 
 	}
 
@@ -91,28 +87,7 @@ public class OutterDao {
 
 	}
 
-	public ResultSet editoutter(OutterBean d) throws SQLException { // 수정
-		sql = "update outter set  lnum= ?, pcode = ?, pname = ?, outamount = ?, price =?, tprice = ?,pancom = ? where pannum = ?";
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, d.getLnum());
-			psmt.setString(2, d.getPcode());
-			psmt.setString(3, d.getPname());
-			psmt.setInt(4, d.getOutamount());
-			psmt.setInt(5, d.getPrice());
-			psmt.setInt(6, d.getTprice());
-			psmt.setString(7, d.getPancom());
-			psmt.setString(8, d.getPannum());
-			r = psmt.executeUpdate();
-			rs = psmt.executeQuery();
-		} catch (SQLException e) {
-			e.printStackTrace();
-//		} finally {
-//			close();
-//		}
-		}
-		return rs;
-	}
+	
 
 	public void close() throws SQLException { // 객체닫음
 		psmt.close();

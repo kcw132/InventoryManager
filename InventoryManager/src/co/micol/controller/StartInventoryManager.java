@@ -89,8 +89,6 @@ public class StartInventoryManager {
 					om.insertoutter();
 				} else if (menu == 3) {
 					om.deleteoutter();
-				} else if (menu == 4) {
-					om.editoutter();
 				}
 			}
 
