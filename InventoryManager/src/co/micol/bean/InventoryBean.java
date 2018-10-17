@@ -45,4 +45,12 @@ public class InventoryBean {		//재고화면
 	public void setIamount(int iamount) {
 		this.iamount = iamount;
 	}
+	@Override
+	public String toString() {
+		System.out.println("pcode=" + pcode + ", pname=" + pname + ", price=" + price + "gooname=" + gooname
+				+ ", wlocation=" + wlocation + ", iamount=" + iamount);
+		return null;
+	}
+	
+	
 }

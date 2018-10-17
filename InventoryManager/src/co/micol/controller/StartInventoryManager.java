@@ -80,7 +80,11 @@ public class StartInventoryManager {
 				} else if (menu == 2) {
 					em.EnterInsert();
 				}
-			} else if (menu == 6) {
+				else if (menu == 3) {
+					em.EnterDelete();
+				}
+			} 
+			else if (menu == 6) {
 				salemenu();
 				menu = sc.nextInt();
 				if (menu == 1) {
@@ -149,6 +153,5 @@ public class StartInventoryManager {
 		System.out.println("1.구매내역조회");
 		System.out.println("2.구매내역입력");
 		System.out.println("3.구매내역삭제");
-		System.out.println("4.구매내역수정");
 	}
 }
