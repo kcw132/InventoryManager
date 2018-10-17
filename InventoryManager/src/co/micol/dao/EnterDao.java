@@ -54,8 +54,6 @@ public class EnterDao {
 		}catch(Exception e){	
 			e.printStackTrace();
 		}
-		
-		
 	}
-
+	
 }
